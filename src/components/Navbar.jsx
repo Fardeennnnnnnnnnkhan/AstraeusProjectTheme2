@@ -1,27 +1,155 @@
-import React from 'react';
+import React ,{useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Globe2 } from 'lucide-react';
+import { TfiMenu } from "react-icons/tfi";
+import { FiX } from "react-icons/fi";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 10);
+  };
+
+  // Add scroll listener
+  useState(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="bg-slate-800 fixed w-full z-50">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-r from-[#0A0D17]/40 to-[#1B1339]/80"
+          : "bg-gradient-to-r from-[#0A0D17] to-[#1B1339]"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Globe2 className="h-8 w-8 text-blue-400" />
-            <span className="text-xl font-bold">Astraeus Next Gen</span>
+            <span className="text-xl font-bold text-white">
+              Astraeus Next Gen
+            </span>
           </Link>
-          <div className="flex space-x-8">
-            <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
-            <Link to="/vajra" className="hover:text-blue-400 transition-colors">VAJRA</Link>
-            <Link to="/minerva" className="hover:text-blue-400 transition-colors">MINERVA</Link>
-            <Link to="/bug-bounty" className="hover:text-blue-400 transition-colors">Bug Bounty</Link>
-            <Link to="/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
+
+          {/* Hamburger Icon for Small Screens */}
+          <button
+            className="text-white text-3xl md:hidden"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? <FiX /> : <TfiMenu />}
+          </button>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex space-x-8">
+            <Link
+              to="/"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              to="/vajra"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              VAJRA
+            </Link>
+            <Link
+              to="/minerva"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              MINERVA
+            </Link>
+            <Link
+              to="/bug-bounty"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              Bug Bounty
+            </Link>
+            <Link
+              to="/contact"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </div>
+
+      <div
+  className={`fixed top-0 h-screen right-0 h-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-1000 transform transition-transform duration-300 ${
+    isMenuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+  style={{ width: "50vw" }}
+>
+  {/* Close Icon */}
+  <div className="flex justify-between items-center p-4">
+    <Link
+      to="/"
+      className="flex items-center space-x-2"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Globe2 className="h-8 w-8 text-center text-blue-400" />
+    </Link>
+    <button
+      className="text-white text-2xl focus:outline-none"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <FiX />
+    </button>
+  </div>
+
+  {/* Links */}
+  <div className="flex flex-col items-start p-6 space-y-6">
+    <Link
+      to="/"
+      className="text-white hover:text-blue-400 transition-colors"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      Home
+    </Link>
+    <Link
+      to="/vajra"
+      className="text-white hover:text-blue-400 transition-colors"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      VAJRA
+    </Link>
+    <Link
+      to="/minerva"
+      className="text-white hover:text-blue-400 transition-colors"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      MINERVA
+    </Link>
+    <Link
+      to="/bug-bounty"
+      className="text-white hover:text-blue-400 transition-colors"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      Bug Bounty
+    </Link>
+    <Link
+      to="/contact"
+      className="text-white hover:text-blue-400 transition-colors"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      Contact
+    </Link>
+  </div>
+</div>
+
     </nav>
   );
-}
+};
 
 export default Navbar;

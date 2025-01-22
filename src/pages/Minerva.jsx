@@ -3,6 +3,8 @@ import { Bot, Search, Shield, Database } from 'lucide-react';
 
 const Minerva = () => {
   return (
+    <>
+    
     <div className="pt-16">
       <div className="bg-gradient-to-b from-slate-900 to-slate-800 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,6 +62,9 @@ const Minerva = () => {
         </div>
       </div>
     </div>
+    </>
+
+
   );
 }
 
