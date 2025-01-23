@@ -55,7 +55,7 @@ const Footer = () => {
         {/* Bottom Border Line */}
         <div className="border-t border-gray-700 mt-12 pt-6 text-center">
           <p className="text-sm text-gray-400">
-            Built Astraeus Next Gen Team.
+            Built By Astraeus Next Gen Team.
           </p>
         </div>
       </div>

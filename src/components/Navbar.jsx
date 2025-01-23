@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-   <nav
+  <nav
   className={`fixed w-full z-50 transition-all duration-300 ${
     isScrolled
       ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-r from-[#0A0D17]/40 to-[#1B1339]/80"
@@ -86,7 +86,7 @@ const Navbar = () => {
   </div>
 
   <div
-    className={`fixed top-0 left-0 h-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-1000 transform transition-transform duration-300 ${
+    className={`fixed top-0 left-0 h-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-50 transform transition-transform duration-300 ${
       isMenuOpen ? "translate-x-0" : "-translate-x-full"
     }`}
     style={{ width: "50vw", paddingTop: "1rem" }}
@@ -99,7 +99,6 @@ const Navbar = () => {
       >
         <Globe2 className="h-10  w-10 text-purple-400" />
       </Link>
-     
     </div>
 
     <div className="flex flex-col items-start px-6 space-y-6 mt-6">
