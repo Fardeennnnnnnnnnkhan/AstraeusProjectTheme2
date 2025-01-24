@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Globe2 } from 'lucide-react';
 import { TfiMenu } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
-
+import LOGO from '../assets/LOGO.png'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,8 +37,9 @@ const Navbar = () => {
     <div className="flex items-center justify-between h-full">
       {/* Logo */}
       <Link to="/" className="flex items-center space-x-2">
-        <Globe2 className="h-8 w-8 text-purple-400" />
-        <span className="text-xl font-bold text-white">Astraeus Next Gen</span>
+      <img src={LOGO} alt="" />
+        {/* <Globe2 className="h-8 w-8 text-purple-400" /> */}
+        {/* <span className="text-xl font-bold text-white">Astraeus Next Gen</span> */}
       </Link>
 
       {/* Hamburger Icon for Small Screens */}
@@ -114,14 +115,14 @@ const Navbar = () => {
         className="text-white hover:text-purple-400 transition-colors"
         onClick={() => setIsMenuOpen(false)}
       >
-        VAJRA
+        Vajra
       </Link>
       <Link
         to="/minerva"
         className="text-white hover:text-purple-400 transition-colors"
         onClick={() => setIsMenuOpen(false)}
       >
-        MINERVA
+        Minerva
       </Link>
       <Link
         to="/bug-bounty"
