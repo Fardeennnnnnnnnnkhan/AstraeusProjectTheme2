@@ -7,6 +7,7 @@ import Minerva from './pages/Minerva';
 import BugBounty from './pages/BugBounty';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import About from './pages/about';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/minerva" element={<Minerva />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/About" element={<About/>}/>
           
         </Routes>
         <Footer />
