@@ -11,14 +11,15 @@ import Footer from './components/Footer';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-900 text-white">
+      <div className="min-h-screen bg-gradient-to-b from-[#0a0515] to-[#150833]  text-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/vajra" element={<Vajra />} />
           <Route path="/minerva" element={<Minerva />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact/>}/>
+          
         </Routes>
         <Footer />
       </div>

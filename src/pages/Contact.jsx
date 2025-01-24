@@ -1,81 +1,86 @@
-import React from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
-
-const Contact = () => {
+import React from "react";
+import contact from '../assets/Contact.png'
+const ContactPage = () => {
   return (
-    <div className="pt-16">
-      <div className="bg-gradient-to-b from-slate-900 to-slate-800 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Get in touch with us for any inquiries or collaboration opportunities
-            </p>
-          </div>
+<div className="relative min-h-screen bg-gradient-to-r from-[#0A0D17] to-[#1B1339] text-white">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: `url('/path-to-your-background-image.jpg')`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      filter: "blur(5px)",
+      zIndex: -1,
+    }}
+  ></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-slate-800 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <MapPin className="h-6 w-6 text-blue-400" />
-                  <p className="text-gray-400">
-                    SNO 7/1 (P) 7/2 NR, KOKAN EXPRESS, KOTHRUD, PUNE- 41103
-                  </p>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <Mail className="h-6 w-6 text-blue-400" />
-                  <a 
-                    href="mailto:shreejitsen@astraeusnextgen.com"
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    shreejitsen@astraeusnextgen.com
-                  </a>
-                </div>
-              </div>
-            </div>
+  {/* Main Content */}
+  <div className="relative z-10">
+    <div className="max-w-7xl mx-auto px-6 py-20 lg:py-24">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-200">
+          Get in{" "}
+          <span className="bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
+            Touch
+          </span>
+        </h1>
+        <p className="text-xl text-gray-400 mt-4">
+          Get in touch with us for any inquiries or collaboration opportunities.
+        </p>
+      </div>
 
-            <div className="bg-slate-800 p-8 rounded-lg">
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-blue-400"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-blue-400"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-blue-400"
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
+      {/* Centered Form */}
+      <div className="flex items-center justify-center">
+        <div className="w-full max-w-lg bg-[#1c1a2e]/50 backdrop-blur-md p-10 rounded-xl shadow-lg shadow-gray-800">
+          <h3 className="text-3xl font-semibold text-center mb-6">
+            Let's Connect 
+          </h3>
+          <form className="space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder="First Name"
+                className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-purple-500 text-white"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-purple-500 text-white"
+              />
             </div>
-          </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-purple-500 text-white"
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-purple-500 text-white"
+            />
+            <textarea
+              placeholder="Message"
+              rows="4"
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-purple-500 text-white"
+            ></textarea>
+            <button
+              type="submit"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-[#1B1339] hover:bg-purple-700 text-white font-bold transition"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </div>
-  );
-}
+  </div>
+</div>
 
-export default Contact;
+
+  );
+};
+
+export default ContactPage;
