@@ -1,0 +1,44 @@
+/* Minerva.css */
+
+/* .text-size {
+  font-size: 0.5rem;
+  line-height: 1.5;
+} */
+
+#minerva-text {
+  border-right: 2px solid transparent;  
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 7s,
+    cursor 0.7s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  0% {
+    border-color: transparent; /* Initially invisible */
+  }
+  100% {
+    border-color: transparent; /* Cursor remains invisible */
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  #minerva-text {
+    white-space: normal;
+    overflow: visible; 
+    animation: none; 
+    border-right: none; 
+  }
+}
+
