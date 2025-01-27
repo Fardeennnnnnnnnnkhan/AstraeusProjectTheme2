@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Globe2 , X} from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Globe2, X } from "lucide-react";
 import { TfiMenu } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
 
@@ -13,33 +13,42 @@ const Navbar = () => {
   };
 
   // Add scroll listener
-  useState(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-  <nav
-  className={`fixed w-full z-50 transition-all duration-300 ${
-    isScrolled
-      ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-r from-[#0A0D17]/40 to-[#1B1339]/80"
-      : "bg-gradient-to-r from-[#0A0D17] to-[#1B1339]"
-  }`}
-  style={{ height: "72px", padding: "0 1rem" }}
->
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-    <div className="flex items-center justify-between h-full">
-      {/* Logo */}
-      <Link to="/" className="flex items-center space-x-2">
-        <Globe2 className="h-8 w-8 text-purple-400" />
-        <span className="text-xl font-bold text-white">Astraeus Next Gen</span>
-      </Link>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-r from-[#0A0D17]/40 to-[#1B1339]/80"
+          : "bg-gradient-to-r from-[#0A0D17] to-[#1B1339]"
+      }`}
+      style={{ height: "72px", padding: "0 1rem" }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <Globe2 className="h-8 w-8 text-purple-400" />
+            <span className="text-xl font-bold text-white">Astraeus Next Gen</span>
+          </Link>
 
           {/* Hamburger Icon for Small Screens */}
           <button
@@ -81,7 +90,6 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            {/* Added About link */}
             <Link
               to="/about"
               className="text-white hover:text-purple-400 transition-colors"
@@ -91,9 +99,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      <div>
-      
 
       {/* Fullscreen Menu */}
       <div
@@ -157,13 +162,16 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          <Link
+            to="/about"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About
+          </Link>
         </div>
       </div>
-    </div>
-</nav>
-
-  
-  
+    </nav>
   );
 };
 
