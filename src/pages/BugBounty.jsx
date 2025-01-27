@@ -7,6 +7,8 @@ import { MdAttachMoney } from "react-icons/md";
 import { FaBalanceScale } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
 import { MdDevices } from "react-icons/md";
+
+
 const BugBounty = () => {
   const programSectionRef = useRef(null);
 
@@ -181,6 +183,8 @@ const BugBounty = () => {
     },
   ].map(({ icon, title, description }, index) => (
     <motion.div
+    whileInView="visible"
+          viewport={{ once: false }}
       key={index}
       className="bg-[#252040] border border-gray-700 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300"
       variants={sectionVariants}
@@ -199,6 +203,7 @@ const BugBounty = () => {
           </motion.div>
 
           <motion.div
+
             className="text-center mt-16"
             variants={sectionVariants}
           >
@@ -238,6 +243,8 @@ const BugBounty = () => {
               { step: 4, title: "Continuous Testing", description: "Evolve security alongside your infrastructure." },
             ].map(({ step, title, description }, index) => (
               <motion.div
+              whileInView="visible"
+          viewport={{ once: false }}
                 key={index}
                 className="bg-[#252040] border border-gray-700 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300"
                 variants={sectionVariants}

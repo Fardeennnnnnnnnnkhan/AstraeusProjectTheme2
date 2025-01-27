@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Globe2 } from 'lucide-react';
+import { Globe2 , X} from 'lucide-react';
 import { TfiMenu } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
 
@@ -92,60 +92,74 @@ const Navbar = () => {
         </div>
       </div>
 
+      <div>
+      
+
+      {/* Fullscreen Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-50 transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ width: "50vw", paddingTop: "1rem" }}
       >
-        <div className="flex justify-between items-center px-4">
+        {/* Close Icon */}
+        <button
+          className="absolute top-4 right-4 text-white p-2 bg-gray-800 rounded-full"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        {/* Logo */}
+        <div className="flex justify-center mt-8">
           <Link
             to="/"
             className="flex items-center space-x-2"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Globe2 className="h-10  w-10 text-purple-400" />
+            <Globe2 className="h-12 w-12 text-purple-400" />
           </Link>
         </div>
 
-    <div className="flex flex-col items-start px-6 space-y-6 mt-6">
-      <Link
-        to="/"
-        className="text-white hover:text-purple-400 transition-colors"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Home
-      </Link>
-      <Link
-        to="/vajra"
-        className="text-white hover:text-purple-400 transition-colors"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        VAJRA
-      </Link>
-      <Link
-        to="/minerva"
-        className="text-white hover:text-purple-400 transition-colors"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        MINERVA
-      </Link>
-      <Link
-        to="/bug-bounty"
-        className="text-white hover:text-purple-400 transition-colors"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Bug Bounty
-      </Link>
-      <Link
-        to="/contact"
-        className="text-white hover:text-purple-400 transition-colors"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Contact
-      </Link>
+        {/* Menu Links */}
+        <div className="flex flex-col items-center justify-center space-y-8 mt-10">
+          <Link
+            to="/"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/vajra"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            VAJRA
+          </Link>
+          <Link
+            to="/minerva"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            MINERVA
+          </Link>
+          <Link
+            to="/bug-bounty"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Bug Bounty
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white text-xl hover:text-purple-400 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact
+          </Link>
+        </div>
+      </div>
     </div>
-  </div>
 </nav>
 
   
