@@ -8,10 +8,13 @@ import BugBounty from './pages/BugBounty';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import About from './pages/about';
+import SmoothScroll from './components/SmoothScroll';
 
 function App() {
   return (
+    <>
     <Router>
+        {/* <SmoothScroll/> */}
       <div className="min-h-screen bg-gradient-to-b from-[#0a0515] to-[#150833]  text-white">
         <Navbar />
         <Routes>
@@ -26,6 +29,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </>
   );
 }
 
