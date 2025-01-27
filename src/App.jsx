@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import About from './pages/about';
 import SmoothScroll from './components/SmoothScroll';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* <SmoothScroll/> */}
       <div className="min-h-screen bg-gradient-to-b from-[#0a0515] to-[#150833]  text-white">
         <Navbar />
+          <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/vajra" element={<Vajra />} />
