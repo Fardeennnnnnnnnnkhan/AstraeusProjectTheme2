@@ -53,22 +53,23 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-            {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact"].map(
-              (item, index) => (
-                <Link
-                  key={index}
-                  to={`/${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-white relative group hover:text-purple-400 transition-all"
-                >
-                  <span className="relative z-10">{item}</span>
-                  {/* Line slide animation */}
-                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-400 group-hover:w-full transition-all duration-500"></span>
-                  {/* Gradient shimmer effect */}
-                  <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                </Link>
-              )
-            )}
-          </div>
+  {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact", "About"].map(
+    (item, index) => (
+      <Link
+        key={index}
+        to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+        className="text-white relative group hover:text-purple-400 transition-all"
+      >
+        <span className="relative z-10">{item}</span>
+        {/* Line slide animation */}
+        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-400 group-hover:w-full transition-all duration-500"></span>
+        {/* Gradient shimmer effect */}
+        <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+      </Link>
+    )
+  )}
+</div>
+
         </div>
       </div>
 
@@ -95,11 +96,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col items-start px-6 space-y-6 mt-6">
-          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact"].map(
+          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact" ,"About"].map(
             (item, index) => (
               <Link
                 key={index}
-                to={`/${item.toLowerCase().replace(" ", "-")}`}
+                to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
                 className="text-white relative group hover:text-purple-400 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >

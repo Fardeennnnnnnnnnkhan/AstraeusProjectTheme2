@@ -95,7 +95,7 @@ const Home = () => {
             autoPlay
             muted
             alt="Space"
-            className="w-full h-full object-cover opacity-70"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
         <div className="relative text-center px-4">
