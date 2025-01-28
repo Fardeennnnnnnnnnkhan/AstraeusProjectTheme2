@@ -16,7 +16,7 @@ function App() {
     <>
     <Router>
         {/* <SmoothScroll/> */}
-      <div className="min-h-screen bg-gradient-to-b from-[#0a0515] to-[#150833]  text-white">
+      <div className="min-h-screen bg-gradient-to-b from-[#071630] to-[#071630]  text-white">
         <Navbar />
           <ScrollToTop/>
         <Routes>
@@ -24,8 +24,8 @@ function App() {
           <Route path="/vajra" element={<Vajra />} />
           <Route path="/minerva" element={<Minerva />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/About" element={<About/>}/>
+          <Route path="/contact-us" element={<Contact/>}/>
+          <Route path="/about-us" element={<About/>}/>
           
         </Routes>
         <Footer />

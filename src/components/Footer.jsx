@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Right Section - Copyright */}
           <div className="flex flex-col justify-center items-center md:items-end text-center md:text-right space-y-2">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Astraeus Next Gen. All rights reserved.
+             
             </p>
            
           </div>
@@ -41,7 +41,7 @@ const Footer = () => {
         {/* Bottom Border Line */}
         <div className="border-t border-gray-700 mt-12 pt-6 text-center">
           <p className="text-sm text-gray-400">
-            {/* Custom message or footer text */}
+          © {new Date().getFullYear()} Astraeus Next Gen. All rights reserved.
           </p>
         </div>
       </div>

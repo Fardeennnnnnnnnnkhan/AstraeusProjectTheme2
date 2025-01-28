@@ -99,7 +99,7 @@ const Home = () => {
           />
         </div>
         <div className="relative text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-pink-500 drop-shadow-2xl">
+          <h1 className="text-6xl md:text-7xl font-semibold mb-6 bg-clip-text text-transparent bg-white font-sans drop-shadow-2xl">
             Astraeus Next Gen
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white drop-shadow-lg font-light">

@@ -7,7 +7,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { FaBalanceScale } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
 import { MdDevices } from "react-icons/md";
-import Bugbounty from '../assets/BugBounty.png';
+import BB from '../assets/BB.jpg';
 
 const BugBounty = () => {
   const programSectionRef = useRef(null);
@@ -52,12 +52,12 @@ const BugBounty = () => {
             <p className="text-lg md:text-xl text-gray-400 max-w-lg">
               In an era of rising cyber threats , traditional security measures are no longer enough. Our Bug Bounty Program leverages the expertise of ethical hackers worldwide to proactively identify and fix vulnerabilities in your system.
             </p>
-            <button
+            {/* <button
               onClick={scrollToProgram}
               className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-500 hover:to-purple-500 px-8 py-4 rounded-lg text-xl font-bold text-white transition-transform hover:scale-105"
             >
               Learn More
-            </button>
+            </button> */}
           </motion.div>
 
           <motion.div
@@ -68,9 +68,9 @@ const BugBounty = () => {
             variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
           >
             <img
-              src={Bugbounty}
+              src={BB}
               alt="Bug Bounty Illustration"
-              className="object cover"
+              className="object-contain "
             />
           </motion.div>
         </div>

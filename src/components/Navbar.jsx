@@ -39,7 +39,7 @@ const Navbar = () => {
             <img
               src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
               alt="Astraeus Next Gen Logo"
-              className="h-10 w-auto"
+              className="h-20 w-auto"
             />
           </Link>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-  {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact", "About"].map(
+  {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
     (item, index) => (
       <Link
         key={index}
@@ -96,7 +96,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col items-start px-6 space-y-6 mt-6">
-          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact" ,"About"].map(
+          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
             (item, index) => (
               <Link
                 key={index}

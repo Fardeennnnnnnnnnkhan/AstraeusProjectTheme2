@@ -23,7 +23,7 @@ const ContactPage = () => {
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-200">
           Get in{" "}
-          <span className="bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-white  bg-clip-text text-transparent">
             Touch
           </span>
         </h1>
@@ -68,7 +68,7 @@ const ContactPage = () => {
             ></textarea>
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-[#1B1339] hover:bg-purple-700 text-white font-bold transition"
+              className="w-full py-3 rounded-lg bg-purple-600 hover:purple-700 text-white font-bold transition"
             >
               Send Message
             </button>
