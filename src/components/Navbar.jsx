@@ -27,8 +27,8 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-r from-[#0A0D17]/40 to-[#1B1339]/80"
-          : "bg-gradient-to-r from-[#0A0D17] to-[#1B1339]"
+          ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-b from-[#071630] to-[#071630]"
+          : "bg-gradient-to-b from-[#071630] to-[#071630]"
       }`}
       style={{ height: "72px", padding: "0 1rem" }}
     >
@@ -53,28 +53,28 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-  {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
-    (item, index) => (
-      <Link
-        key={index}
-        to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-        className="text-white relative group hover:text-purple-400 transition-all"
-      >
-        <span className="relative z-10">{item}</span>
-        {/* Line slide animation */}
-        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-400 group-hover:w-full transition-all duration-500"></span>
-        {/* Gradient shimmer effect */}
-        <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-      </Link>
-    )
-  )}
-</div>
-
+            {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
+              (item, index) => (
+                <Link
+                  key={index}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                  className="text-white relative group hover:text-cyan-400 transition-all"
+                >
+                  <span className="relative z-10">{item}</span>
+                  {/* Line slide animation */}
+                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-400 group-hover:w-full transition-all duration-500"></span>
+                  {/* Gradient shimmer effect */}
+                  <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-cyan-400 to-cyan-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                </Link>
+              )
+            )}
+          </div>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gradient-to-r from-[#0A0D17] to-[#1B1339] z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full bg-gradient-to-b from-[#071630] to-[#071630] z-50 transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ width: "50vw", paddingTop: "1rem" }}
@@ -85,13 +85,11 @@ const Navbar = () => {
             className="flex items-center space-x-2"
             onClick={() => setIsMenuOpen(false)}
           >
-              <Link to="/" className="flex items-center space-x-2">
             <img
               src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
               alt="Astraeus Next Gen Logo"
               className="h-10 w-auto"
             />
-          </Link>
           </Link>
         </div>
 
@@ -101,14 +99,14 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                className="text-white relative group hover:text-purple-400 transition-all"
+                className="text-white relative group hover:text-cyan-400 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="relative z-10">{item}</span>
                 {/* Line slide animation */}
-                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-purple-400 group-hover:w-full transition-all duration-500"></span>
+                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-400 group-hover:w-full transition-all duration-500"></span>
                 {/* Gradient shimmer effect */}
-                <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-cyan-400 to-cyan-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               </Link>
             )
           )}
