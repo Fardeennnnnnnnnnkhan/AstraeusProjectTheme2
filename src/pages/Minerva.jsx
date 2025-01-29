@@ -1,6 +1,7 @@
 import "./Minerva.css";
 import { motion } from "framer-motion";
 import { Network, Zap, Shield, Globe2, Wifi, Radar } from "lucide-react";
+import mm from "../assets/mm.jpg";
 
 const Minerva = () => {
   const features = [
@@ -40,7 +41,14 @@ const Minerva = () => {
   return (
     <div className="pt-16">
       {/* Static Background */}
-      <div className="bg-gradient-to-b from-[#1B1339] to-[#2C2748] ">
+      <div className="bg-#071630 ">
+        <div
+          className="absolute inset-0 bg-no-repeat bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${mm})`,
+            opacity: 0.6,
+          }}
+        ></div>
         {/* Static background only */}
       </div>
 
@@ -60,7 +68,7 @@ const Minerva = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-400 mb-6">
+              <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-400 mb-6">
                 MINERVA
               </h1>
               {/* Adjusted paragraph animation */}
@@ -70,11 +78,12 @@ const Minerva = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                This is an on-demand service. Our team will assist you in setting up your system with the requirements and dependencies to ensure it runs efficiently.
+                This is an on-demand service. Our team will assist you in
+                setting up your system with the requirements and dependencies to
+                ensure it runs efficiently.
               </motion.p>
 
               {/* Learn More Button */}
-             
             </motion.div>
 
             {/* Animated Logo/Image */}
@@ -86,10 +95,10 @@ const Minerva = () => {
             >
               <div className="relative w-40 h-40 flex items-center justify-center">
                 {/* Outer circle with pulse effect */}
-                <div className="absolute w-full h-full rounded-full border-2 border-blue-500 animate-ping opacity-20"></div>
+                <div className="absolute w-full h-full rounded-full border-2 border-cyan-400 animate-ping opacity-20"></div>
 
                 {/* Main circular background */}
-                <div className="absolute w-full h-full rounded-full bg-gradient-to-br from-blue-600 to-purple-600"></div>
+                <div className="absolute w-full h-full rounded-full bg-gradient-to-br from-blue-600 to-cyan-400"></div>
 
                 {/* Network lines */}
                 <Globe2 className="absolute w-12 h-12 text-blue-200 opacity-50 transform rotate-45" />
@@ -108,20 +117,22 @@ const Minerva = () => {
       </motion.div>
 
       {/* Features Section */}
-      <div className="bg-gradient-to-b from-[#1B1339] to-[#2C2748] py-24">
+      <div className="bg-#071630 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {features.map(({ icon: Icon, title, description }, idx) => (
               <motion.div
                 key={idx}
-                className="bg-gradient-to-r from-[#2B224A] to-[#342C5C] p-8 rounded-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:border-purple-500 border border-gray-700 shadow-lg hover:shadow-2xl text-center"
+                className="bg-[#162447] p-8 rounded-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:border-cyan-400 border border-cyan-400 shadow-lg hover:shadow-2xl text-center"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
               >
                 <Icon className="h-12 w-12 text-purple-400 mb-4" />
-                <h3 className="text-xl font-bold text-gray-200 mb-4">{title}</h3>
+                <h3 className="text-xl font-bold text-gray-200 mb-4">
+                  {title}
+                </h3>
                 <p className="text-gray-400">{description}</p>
               </motion.div>
             ))}
@@ -129,7 +140,7 @@ const Minerva = () => {
 
           {/* Technical Specifications Section */}
           <motion.div
-            className="bg-gradient-to-b from-[#18152D] to-[#1E1A34] p-8 rounded-lg shadow-lg"
+            className="bg-[#162447] p-8 rounded-lg shadow-lg"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -142,7 +153,7 @@ const Minerva = () => {
               {specifications.map((spec, idx) => (
                 <li
                   key={idx}
-                  className="p-2 rounded-md bg-[#29264A] hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out"
+                  className="p-2 rounded-md bg-[#162447] hover:bg-cyan-400 hover:text-white transition-all duration-300 ease-in-out"
                 >
                   {spec}
                 </li>
