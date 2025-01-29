@@ -1,6 +1,7 @@
 import "./Vajra.css";
 import { motion } from "framer-motion";
-import { Network, Zap, Shield, Globe2, Wifi, Radar } from "lucide-react";
+import { Network, Zap, Shield } from "lucide-react";
+import BB from '../assets/Vajra.jpeg'; // Add an appropriate background image
 
 const Vajra = () => {
   const features = [
@@ -34,121 +35,94 @@ const Vajra = () => {
   ];
 
   return (
-    <div className="pt-16 ">
-      {/* Static Background */}
-      <div className="bg-gradient-to-b from-[#1B1339] to-[#2C2748] ">
-        {/* Static background only */}
+    <div className="bg-gradient-to-b from-[#0B132B] to-[#1C2541] text-white min-h-screen">
+      {/* Header Section with Background Image */}
+      <div className="relative w-full h-screen">
+        <div
+          className="absolute inset-0 bg-no-repeat bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${BB})`,
+            opacity: 0.6,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B132B]/50 to-[#1C2541]/50"></div>
+        </div>
+        <div className="relative flex items-center justify-center h-full text-center text-white">
+          <motion.div
+            className="space-y-8 px-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
+          >
+            <h1 className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-white">
+              Vajra
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Explore the cutting-edge technologies with real-time updates for Internet Exchange Points and Satellite Communication Systems.
+            </p>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Animated Foreground Section */}
-      <motion.div
-        className="py-12"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="max-w-screen-2xl lg:py-32 h-[80vh] mx-auto px-12 sm:px-16 lg:px-20 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Text Content with Animation */}
-            <motion.div
-              className="text-left space-y-4"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-400 mb-6">
-                VAJRA
-              </h1>
-              <p
-                className="text-base sm:text-lg md:text-xl text-gray-400 max-w-full mx-auto mt-6 opacity-0 animate-fade-in"
-                style={{ animationDelay: "0.2s" }}
-                id="vajra-text"
-              >
-                You can search for any IXP, ASN, Country, or City, and see the latest data from these networks instantly. With these APIs integrated, you can be confident that you are getting the most up-to-date information possible.
-              </p>
-
-              {/* Learn More Button */}
-              {/* <motion.button
-                className="mt-6 px-6 py-3 bg-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-600 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.button> */}
-            </motion.div>
-
-            {/* Animated Logo/Image */}
-            <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="relative w-40 h-40 flex items-center justify-center">
-                {/* Outer circle with pulse effect */}
-                <div className="absolute w-full h-full rounded-full border-2 border-blue-500 animate-ping opacity-20"></div>
-
-                {/* Main circular background */}
-                <div className="absolute w-full h-full rounded-full bg-gradient-to-br from-blue-600 to-purple-600"></div>
-
-                {/* Network lines */}
-                <Globe2 className="absolute w-12 h-12 text-blue-200 opacity-50 transform rotate-45" />
-                <Wifi className="absolute w-10 h-10 text-purple-200 opacity-75" />
-                <Radar
-                  className="absolute w-8 h-8 text-cyan-200 animate-spin"
-                  style={{ animationDuration: "3s" }}
-                />
-
-                {/* Center dot */}
-                <div className="absolute w-4 h-4 bg-white rounded-full shadow-glow"></div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Features Section */}
-      <div className="bg-gradient-to-b from-[#1B1339] to-[#2C2748] py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Features Section with Hover Effects */}
+      <div className="bg-gradient-to-b from-[#1C2541] to-[#3A506B] text-white py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {features.map(({ icon: Icon, title, description }, idx) => (
               <motion.div
                 key={idx}
-                className="bg-gradient-to-r from-[#2B224A] to-[#342C5C] p-8 rounded-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:border-purple-500 border border-gray-700 shadow-lg hover:shadow-2xl text-center"
+                className="flex flex-col items-center text-center bg-[#162447] border border-cyan-400 rounded-xl p-8 hover:shadow-lg transition-transform hover:scale-105"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
               >
-                <Icon className="h-12 w-12 text-purple-400 mb-4" />
-                <h3 className="text-xl font-bold text-gray-200 mb-4">{title}</h3>
-                <p className="text-gray-400">{description}</p>
+                <Icon className="h-12 w-12 text-cyan-400 mb-6" />
+                <h3 className="text-2xl font-bold mb-4 text-cyan-200">{title}</h3>
+                <p className="text-gray-300">{description}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Technical Specifications Section */}
+          {/* Technical Specifications Section with Enhanced Styling */}
           <motion.div
-            className="bg-gradient-to-b from-[#18152D] to-[#1E1A34] p-8 rounded-lg shadow-lg"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="bg-gradient-to-b from-[#0B132B] to-[#1C2541] border border-cyan-500 p-12 shadow-2xl rounded-xl"
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
           >
-            <h3 className="text-2xl font-extrabold mb-6 text-white text-center">
-              Technical Specifications
-            </h3>
-            <ul className="list-disc list-inside text-gray-300 space-y-3">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">
+                Technical Specifications
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Explore the advanced technical specifications that power the Vajra system.
+              </p>
+            </div>
+
+            {/* Specifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {specifications.map((spec, idx) => (
-                <li
+                <motion.div
                   key={idx}
-                  className="p-2 rounded-md bg-[#29264A] hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out"
+                  className="bg-[#162447] border border-cyan-500 rounded-lg p-8 shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
                 >
-                  {spec}
-                </li>
+                  <p className="text-gray-300 text-lg">{spec}</p>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </motion.div>
+
+
         </div>
       </div>
     </div>

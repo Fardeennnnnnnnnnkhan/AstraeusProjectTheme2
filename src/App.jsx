@@ -21,6 +21,7 @@ function App() {
           <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/home' element={<Home/>}/>
           <Route path="/vajra" element={<Vajra />} />
           <Route path="/minerva" element={<Minerva />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
