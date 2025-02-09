@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Globe2 } from "lucide-react";
 import { TfiMenu } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
 
@@ -8,15 +7,12 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 10);
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => {
@@ -27,8 +23,8 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-opacity-70 backdrop-blur-lg bg-gradient-to-b from-[#071630] to-[#071630]"
-          : "bg-gradient-to-b from-[#071630] to-[#071630]"
+          ? "bg-opacity-80 backdrop-blur-lg bg-[#0a0f1c]"
+          : "bg-transparent"
       }`}
       style={{ height: "72px", padding: "0 1rem" }}
     >
@@ -38,16 +34,13 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-2">
             <img
               src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
-              alt="Astraeus Next Gen Logo"
-              className="h-20 w-auto"
+              alt="Astraeus Logo"
+              className="h-14 w-auto"
             />
           </Link>
 
           {/* Hamburger Icon for Small Screens */}
-          <button
-            className="text-white text-3xl md:hidden"
-            onClick={toggleMenu}
-          >
+          <button className="text-white text-3xl md:hidden" onClick={toggleMenu}>
             {isMenuOpen ? <FiX /> : <TfiMenu />}
           </button>
 
@@ -58,13 +51,11 @@ const Navbar = () => {
                 <Link
                   key={index}
                   to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-white relative group hover:text-cyan-400 transition-all"
+                  className="text-gray-300 relative group hover:text-gray-100 transition-all"
                 >
                   <span className="relative z-10">{item}</span>
                   {/* Line slide animation */}
-                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-400 group-hover:w-full transition-all duration-500"></span>
-                  {/* Gradient shimmer effect */}
-                  <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-cyan-400 to-cyan-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gray-400 group-hover:w-full transition-all duration-500"></span>
                 </Link>
               )
             )}
@@ -74,39 +65,35 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-gradient-to-b from-[#071630] to-[#071630] z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-full bg-black bg-opacity-90 z-50 transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ width: "50vw", paddingTop: "1rem" }}
       >
-        <div className="flex justify-between items-center px-4">
-          <Link
-            to="/"
-            className="flex items-center space-x-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
+        <div className="flex justify-between items-center px-4 py-4">
+          <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
             <img
               src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
-              alt="Astraeus Next Gen Logo"
+              alt="Astraeus Logo"
               className="h-10 w-auto"
             />
           </Link>
+          <button className="text-white text-3xl" onClick={toggleMenu}>
+            <FiX />
+          </button>
         </div>
 
-        <div className="flex flex-col items-start px-6 space-y-6 mt-6">
+        <div className="flex flex-col items-start px-8 space-y-6 mt-10">
           {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
             (item, index) => (
               <Link
                 key={index}
                 to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                className="text-white relative group hover:text-cyan-400 transition-all"
+                className="text-gray-300 text-xl relative group hover:text-white transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="relative z-10">{item}</span>
                 {/* Line slide animation */}
-                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-400 group-hover:w-full transition-all duration-500"></span>
-                {/* Gradient shimmer effect */}
-                <span className="absolute inset-0 z-0 text-transparent bg-gradient-to-r from-cyan-400 to-cyan-400 bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gray-500 group-hover:w-full transition-all duration-500"></span>
               </Link>
             )
           )}
@@ -117,3 +104,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

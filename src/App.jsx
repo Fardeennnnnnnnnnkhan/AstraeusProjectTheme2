@@ -16,7 +16,7 @@ function App() {
     <>
     <Router>
         {/* <SmoothScroll/> */}
-      <div className="min-h-screen bg-gradient-to-b from-[#071630] to-[#071630]  text-white">
+      <div className="min-h-screen bg-gradient-to-b from-black to-[#0a0f1c] text-white">
         <Navbar />
           <ScrollToTop/>
         <Routes>
@@ -37,3 +37,5 @@ function App() {
 }
 
 export default App;
+
+

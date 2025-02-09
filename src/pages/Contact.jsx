@@ -1,5 +1,17 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+
+// Animations
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+
+const slideUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } },
+};
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -23,8 +35,8 @@ const ContactPage = () => {
 
     emailjs
       .send(
-        "service_ymq60aw", // Replace with your EmailJS service ID
-        "template_okops1p", // Replace with your EmailJS template ID
+        "service_ymq60aw",
+        "template_okops1p",
         {
           first_name: formData.firstName,
           last_name: formData.lastName,
@@ -32,7 +44,7 @@ const ContactPage = () => {
           phone: formData.phone,
           message: formData.message,
         },
-        "EdyYdBFnUrLWuxbqF" // Replace with your EmailJS public key
+        "V6lo8xXlJMQD7l5iK"
       )
       .then(
         (response) => {
@@ -49,109 +61,94 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#071630] to-[#071630] text-white">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url('/path-to-your-background-image.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          filter: "blur(5px)",
-          zIndex: -1,
-        }}
-      ></div>
+    <div className="bg-gradient-to-b  from-black to-[#0a0f1c] text-white min-h-screen flex items-center justify-center">
+      
+      <div className="max-w-5xl mx-auto mt-32 px-6 lg:px-12 w-full">
+        
+        {/* Header */}
+        <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" variants={fadeUp}>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-200">
+            Get in <span className="bg-white bg-clip-text text-transparent">Touch</span>
+          </h1>
+          <p className="text-lg text-gray-400 mt-4">
+            Contact us for inquiries, collaborations, or support.
+          </p>
+        </motion.div>
 
-      {/* Main Content */}
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-6 py-20 lg:py-24">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-200">
-              Get in{" "}
-              <span className="bg-white bg-clip-text text-transparent">
-                Touch
-              </span>
-            </h1>
-            <p className="text-xl text-gray-400 mt-4">
-              Get in touch with us for any inquiries or collaboration opportunities.
-            </p>
-          </div>
+        {/* Contact Form */}
+        <motion.div
+          className="  rounded-xl shadow-lg p-10 w-full max-w-3xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideUp}
+        >
+          <h3 className="text-3xl font-semibold text-center text-gray-200 mb-6">Let's Connect</h3>
 
-          {/* Centered Form */}
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-lg bg-[#1c1a2e]/50 backdrop-blur-md p-10 rounded-xl shadow-lg shadow-gray-800">
-              <h3 className="text-3xl font-semibold text-center mb-6">
-                Let's Connect
-              </h3>
-
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-cyan-500 text-white"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-cyan-500 text-white"
-                  />
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-cyan-500 text-white"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-cyan-500 text-white"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-transparent border border-[#39374f] focus:outline-none focus:ring focus:ring-cyan-500 text-white"
-                ></textarea>
-
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white font-bold transition"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-
-                {success && (
-                  <p className={`text-center mt-4 ${success.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
-                    {success}
-                  </p>
-                )}
-              </form>
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white focus:outline-none focus:ring focus:ring-cyan-500"
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white focus:outline-none focus:ring focus:ring-cyan-500"
+              />
             </div>
-          </div>
-        </div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white focus:outline-none focus:ring focus:ring-cyan-500"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white focus:outline-none focus:ring focus:ring-cyan-500"
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white focus:outline-none focus:ring focus:ring-cyan-500"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white font-bold transition"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+
+            {success && (
+              <p className={`text-center mt-4 ${success.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+                {success}
+              </p>
+            )}
+          </form>
+        </motion.div>
       </div>
     </div>
   );
