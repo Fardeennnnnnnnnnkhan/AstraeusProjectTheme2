@@ -137,10 +137,10 @@ const Home = () => {
 
     emailjs
       .sendForm(
-        "service_ymq60aw", // Replace with your EmailJS service ID
-        "template_okops1p", // Replace with your EmailJS template ID
+        "service_t0jboxc", // Replace with your EmailJS service ID
+        "template_zg8ulm3", // Replace with your EmailJS template ID
         formRef.current,
-        "EdyYdBFnUrLWuxbqF" // Replace with your EmailJS user ID (or public key if using newer API)
+        "V6lo8xXlJMQD7l5iK" // Replace with your EmailJS user ID (or public key if using newer API)
       )
       .then(
         (response) => {

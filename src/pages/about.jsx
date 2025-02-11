@@ -283,9 +283,8 @@ const About = () => {
         <h2 className="text-4xl font-bold text-gray-200">Our Advisors</h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
         
-        {/* Advisor 1 */}
         <motion.div className="text-center bg-[#1a1f2e] border border-gray-700 rounded-xl p-8 shadow-lg"
           initial="hidden" whileInView="visible" variants={fadeIn}>
           <img src="/DHRUV_Sharma.png" alt="Dhruv Sharma" className="w-32 h-32 rounded-full mx-auto mb-4" />
@@ -293,7 +292,6 @@ const About = () => {
           <p className="text-cyan-400 text-lg">Public Policy & Strategy Expert</p>
         </motion.div>
 
-        {/* Advisor 2 */}
         <motion.div className="text-center bg-[#1a1f2e] border border-gray-700 rounded-xl p-8 shadow-lg"
           initial="hidden" whileInView="visible" variants={fadeIn}>
           <img src="/SUBHO_PATI.png" alt="David Patel" className="w-32 h-32 rounded-full mx-auto mb-4" />
@@ -301,7 +299,7 @@ const About = () => {
           <p className="text-cyan-400 text-lg">Startup Mentor & Strategist</p>
         </motion.div>
 
-      </div>
+      </div> */}
 
     </div>
   );

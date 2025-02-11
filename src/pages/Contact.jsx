@@ -35,8 +35,8 @@ const ContactPage = () => {
 
     emailjs
       .send(
-        "service_ymq60aw",
-        "template_okops1p",
+        "service_t0jboxc",
+        "template_q9289so",
         {
           first_name: formData.firstName,
           last_name: formData.lastName,

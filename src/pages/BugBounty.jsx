@@ -292,10 +292,9 @@ const BugBounty = () => {
 </div>
 
   {/* Investment Plans Section */}
-<div className="bg-gradient-to-b from-black to-[#0a0f1c] text-white py-24 mt-16">
+{/* <div className="bg-gradient-to-b from-black to-[#0a0f1c] text-white py-24 mt-16">
   <div className="max-w-6xl mx-auto text-center">
     
-    {/* Section Header */}
     <motion.h2
       className="text-4xl font-extrabold text-gray-200 mb-8"
       initial="hidden"
@@ -316,7 +315,6 @@ const BugBounty = () => {
       Choose the best plan that fits your organization's security needs.
     </motion.p>
 
-    {/* Investment Plans Grid */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
       {[
         { title: "Critical", price: "$10,000", features: "Includes remote code execution and major breaches.", animation: fadeUp },
@@ -341,7 +339,7 @@ const BugBounty = () => {
       ))}
     </div>
   </div>
-</div>
+</div> */}
 
 
       
