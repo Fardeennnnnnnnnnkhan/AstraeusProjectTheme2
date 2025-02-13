@@ -46,7 +46,7 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-            {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
+            {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us" , "privacy-policy"].map(
               (item, index) => (
                 <Link
                   key={index}
@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col items-start px-8 space-y-6 mt-10">
-          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us"].map(
+          {["Home", "Vajra", "Minerva", "Bug Bounty", "Contact us", "About us" , "privacy-policy"].map(
             (item, index) => (
               <Link
                 key={index}

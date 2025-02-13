@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import About from './pages/about';
 import SmoothScroll from './components/SmoothScroll';
 import ScrollToTop from './components/ScrollToTop';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/minerva" element={<Minerva />} />
           <Route path="/bug-bounty" element={<BugBounty />} />
           <Route path="/contact-us" element={<Contact/>}/>
+          <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
           <Route path="/about-us" element={<About/>}/>
           
         </Routes>
