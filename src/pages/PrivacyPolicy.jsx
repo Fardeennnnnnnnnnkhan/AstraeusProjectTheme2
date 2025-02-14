@@ -63,7 +63,7 @@ const PrivacyPolicy = () => {
         <p className="text-gray-400">Astraeus Next Gen Pvt Ltd</p>
         <p className="text-gray-400">[SNO 7/1 (P) 7/2 NR, KOKAN EXPRESS, KOTHRUD, PUNE- 41103]</p>
         <p className="text-gray-400">[shreejitsen@astraeusnextgen.com]</p>
-        <p className="text-gray-400">[+91 85300 79105]</p>
+        {/* <p className="text-gray-400">[+91 85300 79105]</p> */}
       </div>
     </div>
   );
