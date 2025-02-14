@@ -279,9 +279,9 @@ const About = () => {
       </div>
 
       {/* Advisors Section */}
-      <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" variants={fadeIn}>
+      {/* <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" variants={fadeIn}>
         <h2 className="text-4xl font-bold text-gray-200">Our Advisors</h2>
-      </motion.div>
+      </motion.div> */}
 
       {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
         
