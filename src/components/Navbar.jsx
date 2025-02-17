@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { TfiMenu } from "react-icons/tfi";
 import { FiX } from "react-icons/fi";
+import GRAY_LOGO from '../assets/GRAY_LOGO.png'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +34,8 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
+              // src="https://astraeus.sentritalabs.com/wp-content/uploads/2024/08/Astraeus-Logo.png"
+              src={GRAY_LOGO}
               alt="Astraeus Logo"
               className="h-14 w-auto"
             />
